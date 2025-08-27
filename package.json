@@ -4,10 +4,18 @@
 	"description": "1. Download [Docker Desktop](https://www.docker.com/products/docker-desktop/)",
 	"license": "ISC",
 	"author": "",
-	"type": "commonjs",
+	"type": "module",
 	"main": "",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"seed": "node --env-file=.env ./seed.js"
+	},
+	"dependencies": {
+		"@sequelize/postgres": "^7.0.0-alpha.46",
+		"pg": "^8.16.3",
+		"pg-hstore": "^2.3.4"
+	},
+	"devDependencies": {
+		"sequelize-cli": "^6.6.3"
 	}
 }
