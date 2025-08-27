@@ -1,0 +1,13 @@
+{
+	"name": "bpd-data",
+	"version": "1.0.0",
+	"description": "1. Download [Docker Desktop](https://www.docker.com/products/docker-desktop/)",
+	"license": "ISC",
+	"author": "",
+	"type": "commonjs",
+	"main": "",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"seed": "node --env-file=.env ./seed.js"
+	}
+}
