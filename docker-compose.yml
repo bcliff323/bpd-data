@@ -1,0 +1,13 @@
+services:
+  db:
+    image: bpd-data
+    container_name: bpd_data
+    build:
+      context: .
+      target: bpd_data
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=copdb
+    ports:
+      - 5432:5432
