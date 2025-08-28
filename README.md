@@ -51,7 +51,22 @@
    public | offenses  | table | postgres
    ```
 
-9. Seed the database with the arrest, incident, and offense csv files. You may need to install node first. I recommend installing [nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating)
+9. Create a file named `.env` in the main project directory. Make sure you have these environment variables set:
+
    ```
-   npm run seed
+   POSTGRES_USER=user
+   POSTGRES_DB_HOST=localhost
+   POSTGRES_DB=copdb
+   POSTGRES_PASSWORD=password
+   POSTGRES_PORT=5432
+
+   CSV_PATH_INCIDENTS="db/csv/incidents.csv"
+   CSV_PATH_ARRESTS="db/csv/arrests.csv"
+   CSV_PATH_OFFENSES="db/csv/offenses.csv"
    ```
+
+10. Seed the database with the arrest, incident, and offense csv files. You may need to install node first. I recommend installing [nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating)
+
+```
+npm run seed
+```
