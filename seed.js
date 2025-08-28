@@ -5,6 +5,7 @@ import csv from "csv-parser";
 import initModels from "./db/models/init-models.js";
 import mapIncidents from "./db/scripts/mapIncidents.js";
 import mapArrests from "./db/scripts/mapArrests.js";
+import mapOffenses from "./db/scripts/mapOffenses.js";
 
 const sequelize = new Sequelize({
 	dialect: PostgresDialect,
@@ -17,16 +18,14 @@ const sequelize = new Sequelize({
 });
 
 const models = initModels(sequelize);
-
 const Incident = models.incidents;
 const Arrest = models.arrests;
+const Offense = models.offenses;
 
 try {
 	await sequelize.authenticate();
 
-	console.log(
-		"Connection has been established successfully. Inserting incidents"
-	);
+	console.log("Connection has been established successfully.");
 
 	const incidents = [];
 	fs.createReadStream(process.env.CSV_PATH_INCIDENTS)
@@ -36,6 +35,7 @@ try {
 			incidents.push(formatted);
 		})
 		.on("end", async () => {
+			console.log("Inserting incidents");
 			await Incident.bulkCreate(incidents);
 			console.log("Incidents created successfully");
 		})
@@ -51,8 +51,25 @@ try {
 			arrests.push(formatted);
 		})
 		.on("end", async () => {
+			console.log("Inserting arrests");
 			await Arrest.bulkCreate(arrests);
 			console.log("Arrests created successfully");
+		})
+		.on("error", (err) => {
+			console.error("Error reading CSV:", err.message);
+		});
+
+	const offenses = [];
+	fs.createReadStream(process.env.CSV_PATH_OFFENSES)
+		.pipe(csv())
+		.on("data", (row) => {
+			const formatted = mapOffenses(row);
+			offenses.push(formatted);
+		})
+		.on("end", async () => {
+			console.log("Inserting offenses");
+			await Offense.bulkCreate(offenses);
+			console.log("Offenses created successfully");
 		})
 		.on("error", (err) => {
 			console.error("Error reading CSV:", err.message);

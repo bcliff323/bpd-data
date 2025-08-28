@@ -4,3 +4,4 @@ COPY ./db/init.sh /docker-entrypoint-initdb.d
 COPY ./db/dump.sql ./db/dump.sql
 COPY ./db/csv/arrests.csv ./db/csv/arrests.csv
 COPY ./db/csv/incidents.csv ./db/csv/incidents.csv
+COPY ./db/csv/offenses.csv ./db/csv/offenses.csv

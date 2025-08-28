@@ -43,3 +43,19 @@ CREATE TABLE IF NOT EXISTS arrests (
   addl_charge_7 VARCHAR(255),
   addl_charge_8 VARCHAR(255)
 );
+
+CREATE TABLE IF NOT EXISTS offenses (
+	id SERIAL PRIMARY KEY,
+	incident_number VARCHAR(255),
+	offense_name VARCHAR(255),
+	call_time DATE,
+	offense_cat VARCHAR(255),
+	offense_sub_cat VARCHAR(255),
+	vic_race VARCHAR(255),
+	vic_gender VARCHAR(255),
+	suspect_race VARCHAR(255),
+	suspect_gender VARCHAR(255),
+	bias VARCHAR(255),
+	weapon_type VARCHAR(255),
+	violent VARCHAR(255)
+)
