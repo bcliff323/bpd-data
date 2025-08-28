@@ -8,6 +8,7 @@
 	"main": "",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
+		"sequelize-auto": "sequelize-auto --env-file=.env -o './db/models' -d copdb -h localhost -u user -p 5432 -x password -e postgres",
 		"seed": "node --env-file=.env ./seed.js"
 	},
 	"dependencies": {
@@ -16,6 +17,8 @@
 		"pg-hstore": "^2.3.4"
 	},
 	"devDependencies": {
+		"csv-parser": "^3.2.0",
+		"sequelize-auto": "^0.8.8",
 		"sequelize-cli": "^6.6.3"
 	}
 }

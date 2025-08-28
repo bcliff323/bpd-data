@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS arrests (
   arrest_date DATE,
   gender VARCHAR(255),
   race VARCHAR(255),
-  age VARCHAR(3),
+  age VARCHAR(255),
   charge VARCHAR(255),
   most_serious VARCHAR(50),
   ethnicity VARCHAR(255),
