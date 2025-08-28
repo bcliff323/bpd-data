@@ -40,7 +40,7 @@
    Access privileges |
    ```
 
-8. Verify the tables were created by typing `\dt`. You can also check to see if the columns were created.
+8. Verify the tables were created by typing `\dt`. You can also check to see if the tables were created.
 
    ```
    				List of relations
@@ -48,4 +48,10 @@
    --------+-----------+-------+----------
    public | arrests   | table | postgres
    public | incidents | table | postgres
+   public | offenses  | table | postgres
+   ```
+
+9. Seed the database with the arrest, incident, and offense csv files. You may need to install node first. I recommend installing [nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating)
+   ```
+   npm run seed
    ```
